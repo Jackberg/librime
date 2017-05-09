@@ -38,7 +38,8 @@ bool UserDbValue::Unpack(const string& value) {
         commits = boost::lexical_cast<int>(v);
       }
       else if (k == "d") {
-        dee = (std::min)(10000.0, boost::lexical_cast<double>(v));
+        // dee = (std::min)(10000.0, boost::lexical_cast<double>(v));
+       dee = boost::lexical_cast<double>(v);
       }
       else if (k == "t") {
         tick = boost::lexical_cast<TickCount>(v);
@@ -211,17 +212,17 @@ bool UserDbMerger::MetaPut(const string& key, const string& value) {
 bool UserDbMerger::Put(const string& key, const string& value) {
   if (!db_) return false;
   UserDbValue v(value);
-  if (v.tick < their_tick_) {
-    v.dee = algo::formula_d(0, (double)their_tick_, v.dee, (double)v.tick);
-  }
+  // if (v.tick < their_tick_) {
+  //   v.dee = algo::formula_d(0, (double)their_tick_, v.dee, (double)v.tick);
+  // }
   UserDbValue o;
   string our_value;
   if (db_->Fetch(key, &our_value)) {
     o.Unpack(our_value);
   }
-  if (o.tick < our_tick_) {
-    o.dee = algo::formula_d(0, (double)our_tick_, o.dee, (double)o.tick);
-  }
+  // if (o.tick < our_tick_) {
+  //   o.dee = algo::formula_d(0, (double)our_tick_, o.dee, (double)o.tick);
+  // }
   if (std::abs(o.commits) < std::abs(v.commits))
       o.commits = v.commits;
   o.dee = (std::max)(o.dee, v.dee);

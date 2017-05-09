@@ -1,3 +1,11 @@
+2017-05-09 Shaojie Jiang <shaojiejiang.1991@gmail.com>
+
+	* src/rime/dict/user_db.cc: remove the upper limit of 10000 on dee
+	comment out lines which used formula_d to modify dee values
+	* src/rime/algo/dynamics.h: modified formula_d to return (d + da), this should result in
+	dee adding 1 on every commit
+	* build.bat: CMAKE_TOOLSET set to "v140"
+
 2014-12-14  GONG Chen  <chen.sst@gmail.com>
 
 	* CMakeLists.txt: bump version to 1.2.9.

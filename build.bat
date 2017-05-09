@@ -22,7 +22,7 @@ echo.
 if defined CMAKE_INSTALL_PATH set PATH=%PATH%;%CMAKE_INSTALL_PATH%
 
 set CMAKE_GENERATOR="Visual Studio 14 2015"
-set CMAKE_TOOLSET="v140_xp"
+set CMAKE_TOOLSET="v140"
 
 set build=build
 set build_boost=0
