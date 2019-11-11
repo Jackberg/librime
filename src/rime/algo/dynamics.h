@@ -4,7 +4,8 @@ namespace rime {
 namespace algo {
 
 inline double formula_d(double d, double t, double da, double ta) {
-  return d + da * exp((ta - t) / 200);
+  // return d + da * exp((ta - t) / 200);
+  return d + da;
 }
 
 inline double formula_p(double s, double u, double t, double d) {
